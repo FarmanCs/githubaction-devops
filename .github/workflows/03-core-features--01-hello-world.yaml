@@ -8,3 +8,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
+  say-hello-from-nodejs:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/node@v6
+        with:
+          who-to-greet: "from an action in the GitHub Action marketplace! 👋"
+      - run: const message = 'Hello from node.js in a github action workflow!'; console.log(message);
+        shell: node
