@@ -18,6 +18,7 @@ jobs:
 
       - run: node -e "const message='Hello from node.js in a github action workflow!'; console.log(message);"
   say-hi-from-python:
+    needs: say-hello-from-nodejs
     runs-on: ubuntu-24.04
     steps:
       - run: print("Hello from python in a github action workflow!")
