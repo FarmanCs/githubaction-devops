@@ -8,11 +8,17 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
+
   say-hello-from-nodejs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/setup-node@v6
         with:
           node-version: "20"
-      - run: const message = 'Hello from node.js in a github action workflow!'; console.log(message);
-        shell: node
+
+      - run: node -e "const message='Hello from node.js in a github action workflow!'; console.log(message);"
+  say-hi-from-python:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: print("Hello from python in a github action workflow!")
+        shell: python
