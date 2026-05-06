@@ -11,8 +11,8 @@ jobs:
   say-hello-from-nodejs:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/node@v6
+      - uses: actions/setup-node@v6
         with:
-          who-to-greet: "from an action in the GitHub Action marketplace! 👋"
+          node-version: "20"
       - run: const message = 'Hello from node.js in a github action workflow!'; console.log(message);
         shell: node
