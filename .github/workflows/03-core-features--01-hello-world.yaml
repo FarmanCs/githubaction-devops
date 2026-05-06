@@ -1,4 +1,4 @@
-name: hello github actions
+name: Step Types
 
 on:
   workflow_dispatch:
@@ -9,17 +9,16 @@ jobs:
     steps:
       - run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
 
-  say-hello-from-nodejs:
+  say-hello-inline-python:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/setup-node@v6
-        with:
-          node-version: "20"
-
-      - run: node -e "const message='Hello from node.js in a github action workflow!'; console.log(message);"
-  say-hi-from-python:
-    needs: say-hello-from-nodejs
-    runs-on: ubuntu-24.04
-    steps:
-      - run: print("Hello from python in a github action workflow!")
+      - run: print("Hello from an inline python script in a GitHub Action Workflow!")
         shell: python
+
+  say-hello-from-javascript-action:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d # v1.1
+        # - uses: actions/hello-world-javascript-action@v1 # This would work, but it would be less stable and less secure:
+        with:
+          who-to-greet: "from an action in the GitHub Action marketplace! 👋"
