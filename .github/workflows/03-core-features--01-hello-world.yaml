@@ -8,13 +8,3 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
-  hello-from-javascript:
-    runs-on: ubuntu-24
-    steps:
-      - run: const message = "Hello from an inline JavaScript script in a GitHub Action Workflow!"; console.log(message);
-        shell: node
-  hello-from-python:
-    runs-on: ubuntu-24
-    steps:
-      - run: print("Hello from an inline python script in a GitHub Action Workflow!")
-        shell: python
