@@ -1,0 +1,19 @@
+name: github action hands on
+
+on:
+  workflow_dispatch:
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Hello from gihtub action hands on."
+  job2:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Hello from job2."
+  job3:
+    needs: job2
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "hello from job3 to check the dependency run of job2"
