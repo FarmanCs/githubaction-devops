@@ -13,7 +13,7 @@ jobs:
     steps:
       - run: echo "Hello from job2."
   job3:
-    needs: job2
+    needs: [job2, say-hello]
     runs-on: ubuntu-24.04
     steps:
       - run: echo "hello from job3 to check the dependency run of job2"
